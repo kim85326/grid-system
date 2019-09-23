@@ -1,0 +1,31 @@
+$grid-columns: 12;
+
+* {
+    box-sizing: border-box;
+}
+
+.row {
+    &::before {
+        content: "";
+        display: block;
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+.col {
+    float: left;
+    background-color: rgba(#4a86e9, 0.2);
+    border: 1px solid #4a86e9;
+    padding: 15px;
+}
+
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        width: calc(100% * (#{$i} / #{$grid-columns}));
+    }
+}
